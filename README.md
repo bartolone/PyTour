@@ -1,5 +1,4 @@
-# PyTour
-PyTour: a Python-powered band tour-planning assistant
+# PyTour: a Python-powered band tour-planning assistant
 
 PyTour delivers recommendations via a Flask app for when bands should plan to come to a given city on tour, based on that band's genre. Users select a genre and a city, and PyTour lists the best and worst dates for a band of that genre to book a show in that city.
 
