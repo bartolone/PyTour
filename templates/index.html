@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Py-Tour: Tour Manager of Darkness</title>
+  <style>
+  body{
+    font-family: sans-serif;
+  }
+  .button {
+    background-color: DarkGray;
+    border: none;
+    color: Black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .app-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 10px 10px 0px #eee;
+    width: 30%;
+    margin: auto;
+  }
+	.rec-header {
+		background-color: LightGray;
+		border: 1px solid #ccc;
+		padding: 10px;
+		width: 70%;
+		margin: auto;
+	}
+  .rec-box {
+	  border: 1px solid #ccc;
+  	padding: 10px;
+		box-shadow: 10px 10px 0px #eee;
+  	width: 70%;
+		padding-bottom: 25px;
+  	margin: auto;
+  }
+	select
+  {
+		height:40px;
+		font-size:20px;
+		width:200px;
+  }
+	</style>
+
+</head>
+
+<body align="center">
+
+<h2>Please select a genre and a city, then press the button below to find out the best times to come to town.</h2>
+
+<div class="app-box" align="center">
+	<form action="{{ url_for('render_message') }}" method="POST">
+		<h3>Genre</h3>
+	  <select font-size=20 name='user_genre'>
+	      <option value='Rock'>Rock</option>
+	      <option value='Country'>Country</option>
+	      <option value='Hard Rock'>Metal/Hard Rock</option>
+				<option value='Pop'>Pop</option>
+				<option value='Alternative'>Alternative/Indie</option>
+				<option value='Hip-Hop'>Rap/Hip-Hop</option>
+				<option value='Electronic'>Electronic</option>
+	  </select>
+	      <h3>City</h3>
+	  <select name='user_city'>
+	      <option value='New York'>New York City</option>
+	      <option value='Los Angeles'>Los Angeles</option>
+	      <option value='Chicago'>Chicago</option>
+				<option value='San Francisco'>San Francisco</option>
+				<option value='Seattle'>Seattle</option>
+				<option value='Portland'>Portland</option>
+				<option value='Washington'>Washington, DC</option>
+				<option value='Philadelphia'>Philadelphia</option>
+				<option value='Nashville'>Nashville</option>
+				<option value='Atlanta'>Atlanta</option>
+				<option value='Austin'>Austin</option>
+	  </select>
+		<br>
+		<br>
+		<br>
+		<button type="submit" class="button">
+			Let the tour begin!
+		</button>
+	 </div>
+	 </form>
+  <br>
+
+	{% autoescape false %}
+	{% if weekrec %}
+
+	<p>{{daterec}}</p>
+	<h2>Best and worst days of the week</h2>
+	<p>{{weekrec}}</p>
+
+	{% endif %}
+	{% endautoescape %}
+
+</body>
+</html>
